@@ -1,0 +1,339 @@
+/* RESET GLOBAL Y BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    overflow: hidden; 
+    background-color: rgb(75, 81, 66);
+    width: 100vw; 
+}
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-areas: 
+        "aside"
+        "header"
+        "main"
+        "footer"; 
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto; 
+}
+
+
+main {
+    grid-area: main;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+}
+
+/* HEADER y ASIDEBAR cell*/
+.header {
+    
+    grid-area: header; 
+}
+
+.encabezado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 150px;
+    flex-direction: column;
+    overflow: hidden; 
+}
+.encabezado img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+    opacity: 0.7; 
+}
+
+.titulo-port{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: rgb(241, 245, 249);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+}
+.parrafo-header{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.2rem;
+}
+
+.asidebar {
+    grid-area: aside; 
+    background-color: rgb(212, 239, 162); 
+    padding: 0;
+    display: block; 
+}
+
+.asidebar-movil {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+}
+.asidebar-movil .icon-logo,
+.asidebar-movil .icon-menu{
+    font-size: 18px !important;
+}
+
+.aside-logo-escritorio,
+.menu-ul {
+    display: none;
+}
+.menu-ul li{
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: rgb(188, 170, 48);
+    padding: 20px;
+    font-weight: bold;
+}
+
+/* CARRUSEL cell */
+.carrusel-of {
+    padding: 10px 0; 
+    overflow: hidden;
+}
+
+.lista-imagenes {
+    display: flex;
+    white-space: nowrap;
+    width: 1600px; 
+    animation: scroll-automatico-movil 15s linear infinite;
+}
+
+.lista-imagenes img {
+    
+    width: 45vw; 
+    height: 120px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 5px; 
+}
+
+@keyframes scroll-automatico-movil {
+    0% { transform: translate(0); }
+    100% { transform: translateX(-800px); }
+}
+
+.nosotros {
+    grid-column: 1 /-1;
+    background-color: rgb(210, 222, 172);
+    padding: 20px 10px; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* SECCIÓN PRODUCTOS  cell */
+.grilla-productos {
+    background-color: rgb(232, 232, 185);
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    padding: 10px;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.card-productos {
+    background-color: rgb(204, 227, 210);
+    min-height: 100px;
+    border: 1px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0,0 ,0, 0.3); 
+}
+
+.imagen-container{
+    height: 200px; 
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen-container img{
+    height: 250px;
+    width: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+/*boton*/
+.btn-comprar{
+    display: block;
+    text-decoration: none;
+    background-color: rgb(209, 190, 94);
+    color: white;
+    padding: 12px 15px;
+    margin: 15px;
+    font-size: 1.1rem;
+    font-weight:bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+
+}
+.paginacion-container{
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    grid-column: 1/ -1 ; 
+}
+.paginacion-container ul{
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    overflow: hidden;
+}
+.paginacion-container a{
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-left: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* CONTACTO (cell) */
+.contacto{
+    text-align: center;
+    background-color: rgb(210, 222, 172) ;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+.contactanos{
+    
+    display: flex;
+    flex-direction: column; 
+    gap: 0;
+    max-width: none;
+    padding: 0 20px;
+}
+.bloque-contactanos{
+    flex: 1;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* FOOTER */
+.footer-pie{ 
+    grid-area: footer;
+    text-align: center;
+    background-color: rgb(197, 227, 142);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer-pie .iconos i{
+    font-size: 25px;
+    margin: 0 4px;
+    color: white;
+}
+.footer-pie h2{
+    font-size: 1.2rem;
+    color: rgb(70, 59, 81);
+}
+
+
+/*  ESCRITORIO (> 576px) */
+
+@media (min-width: 577px) { 
+    
+    
+    .grid-container {
+        display: grid;
+        min-height: 100vh;
+        grid-template-areas: 
+            "aside header"
+            "aside main"
+            "footer footer"; 
+        grid-template-columns: 200px minmax(0, 1fr);
+        grid-template-rows: auto 1fr auto; 
+    }
+
+    /* ASIDEBAR DE ESCRITORIO */
+    .asidebar {
+        background-color: rgb(212, 239, 162);
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+    }
+    .asidebar-movil {
+        display: none; /* Ocultar menú cell */
+    }
+    .aside-logo-escritorio {
+        display: block; /* Mostrar logo de escritorio */
+        width: 140px;
+        height: auto;
+        margin: 30px 0 30px 10px;
+    }
+    .menu-ul {
+        display: block; /* Mostrar menú de escritorio */
+        list-style: none;
+        text-align: start;
+        padding: 0 20px;
+        margin-top: 80px;
+    }
+
+    .menu-ul li a{
+    text-decoration: none;
+    color: rgb(113, 110, 41);
+    }
+
+    /* CARRUSEL DE ESCRITORIO */
+    .carrusel-of {
+        grid-column: auto; 
+        padding: 10px;
+    }
+    .lista-imagenes{
+        width: 3260px; 
+        animation: scroll-automatico 20s linear infinite;
+    }
+    .lista-imagenes img{
+        width: 400px; 
+        height: 180px;
+        margin-right: 10px;
+    }
+    @keyframes scroll-automatico{
+        0% { transform: translate(0); }
+        100% { transform: translateX(-1620px); }
+    }
+
+    /* GRILLA DE PRODUCTOS EN ESCRITORIO */
+    .grilla-productos {
+        grid-template-columns: 1fr 1fr 1fr; /* Tres columnas */
+        padding: 20px;
+    }
+    .card-productos:hover{
+        box-shadow: 0 10px 20px rgba(0,0 ,0, 0.2);
+        transform: translateY(-5px);
+    }
+    
+    /* CONTACTO ESCRITORIO */
+    .contactanos {
+        flex-direction: row; /* Volver a mostrar lado a lado */
+        max-width: 600px; 
+        margin: 0 auto;
+    }
+    /*footer*/
+    .footer-pie {
+    padding: 10px 0;
+}
+}
